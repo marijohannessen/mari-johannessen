@@ -1,0 +1,33 @@
+.header {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__info {
+    cursor: pointer;
+
+    &:hover {
+
+      h1 {
+        color: $color--hover;
+      }
+    }
+
+    h1,
+    h3 {
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: normal;
+    }
+
+    h3 {
+      font-size: 1rem;
+      padding-top: .25rem;
+      letter-spacing: .5px;
+    }
+  }
+}

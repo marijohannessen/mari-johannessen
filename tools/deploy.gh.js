@@ -7,7 +7,7 @@ const task = require('./task');
 
 const remote = {
   name: 'github',
-  url: 'https://github.com/marijohannessen/egan-realty.git',
+  url: 'https://github.com/marijohannessen/mari-johannessen.git',
   branch: 'gh-pages',
 };
 

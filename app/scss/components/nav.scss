@@ -1,0 +1,27 @@
+.nav {
+  font-family: 'Futura', sans-serif;
+
+  ul {
+    display: flex;
+    list-style: none;
+    font-size: .9rem;
+    padding-top: .5rem;
+
+    li {
+      margin: 0 1.25rem;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        color: $color--hover;
+      }
+
+      &.active {
+        color: $color--hover;
+      }
+    }
+  }
+}

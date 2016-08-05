@@ -1,24 +1,21 @@
 const React = require('react');
-import Menu from './menu';
-import ContactList from './contact-list.js';
+import Nav from './Nav';
 
-// <Header />
-class Header extends React.Component {
+export default class Header extends React.Component {
+  constructor() {
+    super();
+  }
 
   render() {
+
     return (
       <header className="header">
-        <h1 className="header__title">
-          <span className="header__title--name">EGAN</span>
-          <span className="header__title--tag">Realty & Appraisals</span>
-        </h1>
-        <div className="right-content">
-          <Menu />
-          <ContactList />
+        <div className="header__info">
+          <h1>Mari Johannessen</h1>
+          <h3>Front-End Developer</h3>
         </div>
+        <Nav navItems={this.props.navItems} />
       </header>
     )
   }
 };
-
-export default Header;

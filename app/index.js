@@ -1,12 +1,10 @@
 'use strict';
 
-import Header from './scripts/components/header';
-import Content from './scripts/components/content';
-import Hero from './scripts/components/hero'
-
 const React = require('react');
 const ReactDOM = require('react-dom');
 const ReactRouter = require('react-router');
+import Header from './scripts/components/Header';
+import Codepens from './scripts/components/Codepens';
 
 require('./scss/main.scss');
 
@@ -18,27 +16,36 @@ const createBrowserHistory = require('history/lib/createBrowserHistory');
 
 const Rebase = require('re-base');
 
-
-
 import 'babel-polyfill';
 
 // <App />
 class App extends React.Component {
   componentDidMount() {
-    const welcome = document.querySelector('.welcome');
-    const form = document.querySelector('.form');
-
-    setTimeout(() => {
-      welcome.classList.add('popup');
-      form.classList.add('popup');
-    }, 300);
   }
 
   render() {
+    const navItems = {
+      navItem1: {
+        text: 'Home',
+        active: 'active'
+      },
+      navItem2: {
+        text: 'Projects'
+      },
+      navItem3: {
+        text: 'About'
+      },
+      navItem4: {
+        text: 'Blog'
+      },
+      navItem5: {
+        text: 'Contact'
+      },
+    };
     return (
-      <div>
-        <Header />
-        <Content />
+      <div className="container">
+        <Header navItems={navItems} />
+        <Codepens />
       </div>
     )
   }

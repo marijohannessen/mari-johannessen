@@ -1,7 +1,7 @@
 {
-  "name": "egan-realty",
+  "name": "mari-johannessen",
   "version": "1.0.0",
-  "description": "Egan Realty",
+  "description": "Personal website for Mari Johannessen",
   "scripts": {
     "storybook": "start-storybook -p 9001",
     "build": "webpack",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marijohannessen/egan-realty"
+    "url": "git+https://github.com/marijohannessen/mari-johannessen"
   },
   "keywords": [],
   "author": "Mari Johannessen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marijohannessen/egan-realty/issues"
+    "url": "https://github.com/marijohannessen/mari-johannessen/issues"
   },
-  "homepage": "https://github.com/marijohannessen/egan-realty#readme",
+  "homepage": "https://github.com/marijohannessen/mari-johannessen#readme",
   "dependencies": {
     "babel-core": "6.9.1",
     "babel-loader": "6.2.4",
