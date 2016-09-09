@@ -1,0 +1,78 @@
+@import 'theme1';
+
+.main {
+  background-color: #111;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  font-family: 'Roboto Mono', sans-serif;
+  color: #ccc;
+}
+
+.dialog-container {
+
+  .dialog {
+    display: block;
+  }
+}
+
+.theme-picker {
+  margin-top: 1rem;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+  }
+
+  li {
+    margin-right: 1rem;
+    cursor: pointer;
+    &:first-child {
+
+      .theme {
+        div:first-child {
+          background-color: #D6D1CD;
+        }
+
+        div:nth-child(2) {
+          background-color: #E5ECE9;
+        }
+
+        div:nth-child(3) {
+          background-color: #C60F7B;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .theme {
+        div:nth-child(1) {
+          background-color: #8963BA;
+        }
+
+        div:nth-child(2) {
+          background-color: #AFE3C0;
+        }
+
+        div:nth-child(3) {
+          background-color: #90C290;
+        }
+      }
+    }
+  }
+
+  .theme {
+    display: flex;
+
+    div {
+      display: block;
+      width: 100px;
+      height: 50px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.social-media {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 2rem;
+
+  &__btn {
+    margin-right: .5rem;
+    transition: .4s ease-in-out;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    svg {
+      width: 1.2rem;
+    }
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+}

@@ -1,37 +1,85 @@
 'use strict';
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const ReactRouter = require('react-router');
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, Route, Link, browserHistory } from 'react-router';
 import Header from './scripts/components/Header';
+import Footer from './scripts/components/Footer';
 import Codepens from './scripts/components/Codepens';
+import Tiles from './scripts/components/Tiles';
+import Tweets from './scripts/components/Tweets';
+import Projects from './scripts/components/Projects';
+import Intro from './scripts/components/Intro';
+import Blogposts from './scripts/components/Blogposts';
+import InteractiveApp from './scripts/InteractiveApp';
+import SocialMedia from './scripts/components/SocialMedia';
 
-require('./scss/main.scss');
-
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const Navigation = ReactRouter.Navigation;
-const History = ReactRouter.History;
-const createBrowserHistory = require('history/lib/createBrowserHistory');
-
-const Rebase = require('re-base');
-
+import { hashHistory } from 'react-router';
 import 'babel-polyfill';
+
+const $ = require('jQuery');
+require('./scss/main.scss');
 
 // <App />
 class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: true,
+      loading2: true,
+      data: [],
+      blogposts: {},
+    }
+  }
+
   componentDidMount() {
+    this.loadCodepens();
+    this.loadBlogposts();
+  }
+
+  getCallback() {
+    console.log('callback');
+  }
+
+  getError() {
+    console.log('error');
+  }
+
+  loadBlogposts() {
+    this.setState({
+      blogposts : require('./scripts/data/blogposts'),
+      loading2: false
+    });
+  }
+
+  loadCodepens() {
+    $.ajax({
+      url: "./app/codepen.xml",
+      dataType: 'xml',
+      cache: false,
+      success: function(data) {
+        this.setState({
+          loading: false,
+          data
+        })
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error("./app/codepen.xml", status, err.toString());
+      }.bind(this)
+    });
   }
 
   render() {
     const navItems = {
-      navItem1: {
-        text: 'Home',
-        active: 'active'
-      },
-      navItem2: {
-        text: 'Projects'
-      },
+      // navItem1: {
+      //   text: 'Home',
+      //   active: 'active'
+      // },
+      // navItem2: {
+      //   text: 'Projects'
+      // },
       navItem3: {
         text: 'About'
       },
@@ -39,16 +87,40 @@ class App extends React.Component {
         text: 'Blog'
       },
       navItem5: {
-        text: 'Contact'
+        text: 'Get in touch'
       },
     };
+
+    if (this.state.loading || this.state.loading2) {
+      return (
+        <div className="container">
+          <Header navItems={navItems} />
+          <Tiles />
+        </div>
+      )
+    }
+
     return (
+    <div>
       <div className="container">
-        <Header navItems={navItems} />
-        <Codepens />
+        {/*<Header navItems={navItems} />*/}
+        <Intro navItems={navItems} />
+        <Tiles />
+        <Codepens data={this.state.data} />
+        <Projects />
+        <Blogposts blogposts={this.state.blogposts} />
       </div>
+      <Footer />
+    </div>
     )
   }
 };
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+var routes = (
+  <Router history={browserHistory}>
+    <Route path="/" component={App} />
+    <Route path="/interactive" component={InteractiveApp} />
+  </Router>
+)
+
+render(routes, document.querySelector('#app'));

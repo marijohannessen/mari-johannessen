@@ -36,7 +36,7 @@ const common = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'stage-0']
         }
       },
       {
@@ -54,7 +54,7 @@ const common = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Egan Realty',
+      title: 'Mari Johannessen',
       template: 'app/views/index.html',
     })
   ]

@@ -1,37 +1,23 @@
 import React from 'react';
 import SectionList from './SectionList';
 
-class Codepens extends React.Component {
+class Blogposts extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      codepens: '',
+      blogposts: '',
       hidden: true
     };
   }
 
   componentDidMount() {
-    this.getCodepens(this.props.data);
-    document.addEventListener('scroll', () => {
-      const section = document.querySelector('[data-section]');
-      if (document.body.scrollTop > (section.offsetHeight + 100)) {
-        this.setState({
-          hidden: false
-        })
-      }
-    });
+    this.getBlogposts(this.props.blogposts);
   }
 
-  getCodepens(data) {
-    const pens = [... data.getElementsByTagName('item')];
-    let array = Object.keys(pens)
-      .map((key) => {
-        const newArr = Array.prototype.slice.call(pens[key].children);
-        return newArr;
-      });
+  getBlogposts(data) {
     this.setState({
-      codepens: array
+      blogposts: this.props.blogposts
     });
   }
 
@@ -50,10 +36,10 @@ class Codepens extends React.Component {
   }
 
   renderItems(key) {
-    const codepen = this.state.codepens[key];
-    const title = codepen[0].innerHTML;
-    const link = codepen[1].innerHTML;
-    const date = codepen[6].innerHTML;
+    const blogpost = this.state.blogposts[key];
+    const title = blogpost.title;
+    const link = blogpost.link;
+    const date = blogpost.date;
     const niceDate = new Date(date);
     let formattedDate;
     let mm = (niceDate.getMonth() + 1).toString();
@@ -76,8 +62,8 @@ class Codepens extends React.Component {
   }
 
   render() {
-    return <SectionList classNames="section" viewAllLink="http://www.codepen.io/marijoha" viewAllText="All Codepens" listHeading="Recent Codepens" list={this.state.codepens} renderMethod={this.renderItems.bind(this)}/>;
+    return <SectionList classNames="section" viewAllLink="http://marijohannessen.github.io" viewAllText="Read the Blog" listHeading="Recent Blog Posts" list={this.state.blogposts} renderMethod={this.renderItems.bind(this)} />;
   }
 };
 
-export default Codepens;
+export default Blogposts;

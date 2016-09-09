@@ -1,18 +1,18 @@
 import React from 'react';
 import SectionList from './SectionList';
 
-class Codepens extends React.Component {
+class Tweets extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      codepens: '',
+      tweets: '',
       hidden: true
     };
   }
 
   componentDidMount() {
-    this.getCodepens(this.props.data);
+    // this.getTweets(this.props.tweets);
     document.addEventListener('scroll', () => {
       const section = document.querySelector('[data-section]');
       if (document.body.scrollTop > (section.offsetHeight + 100)) {
@@ -23,17 +23,17 @@ class Codepens extends React.Component {
     });
   }
 
-  getCodepens(data) {
-    const pens = [... data.getElementsByTagName('item')];
-    let array = Object.keys(pens)
-      .map((key) => {
-        const newArr = Array.prototype.slice.call(pens[key].children);
-        return newArr;
-      });
-    this.setState({
-      codepens: array
-    });
-  }
+  // getTweets(tweets) {
+  //   const pens = [... tweets.getElementsByTagName('item')];
+  //   let array = Object.keys(pens)
+  //     .map((key) => {
+  //       const newArr = Array.prototype.slice.call(pens[key].children);
+  //       return newArr;
+  //     });
+  //   this.setState({
+  //     codepens: array
+  //   });
+  // }
 
   fixBorders(evt) {
     const prev = evt.currentTarget.previousSibling;
@@ -50,10 +50,10 @@ class Codepens extends React.Component {
   }
 
   renderItems(key) {
-    const codepen = this.state.codepens[key];
-    const title = codepen[0].innerHTML;
-    const link = codepen[1].innerHTML;
-    const date = codepen[6].innerHTML;
+    const tweet = this.state.tweets[key];
+    const title = tweet[0].innerHTML;
+    const link = tweet[1].innerHTML;
+    const date = tweet[6].innerHTML;
     const niceDate = new Date(date);
     let formattedDate;
     let mm = (niceDate.getMonth() + 1).toString();
@@ -76,8 +76,8 @@ class Codepens extends React.Component {
   }
 
   render() {
-    return <SectionList classNames="section" viewAllLink="http://www.codepen.io/marijoha" viewAllText="All Codepens" listHeading="Recent Codepens" list={this.state.codepens} renderMethod={this.renderItems.bind(this)}/>;
+    return <SectionList classNames="section" viewAllLink="http://www.twitter.com/JohannessenMari" viewAllText="View All Tweets" listHeading="Recent Tweets" list={this.state.tweets} renderMethod={this.renderItems.bind(this)}/>;
   }
 };
 
-export default Codepens;
+export default Tweets;

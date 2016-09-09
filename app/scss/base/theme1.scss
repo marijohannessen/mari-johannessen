@@ -1,0 +1,16 @@
+.main {
+  &.theme1 {
+
+    &--1 {
+      background-color: map-get($theme1, bg);
+      color: #333;
+      border-top: 100px solid map-get($theme1, primary);
+
+      #theme1 {
+        .theme {
+          border: 1px solid map-get($theme1, secondary);
+        }
+      }
+    }
+  }
+}

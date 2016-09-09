@@ -1,14 +1,15 @@
 .nav {
-  font-family: 'Futura', sans-serif;
+  font-family: 'Lato', sans-serif;
+  display: flex;
 
   ul {
     display: flex;
     list-style: none;
-    font-size: .9rem;
+    font-size: .875rem;
     padding-top: .5rem;
 
-    li {
-      margin: 0 1.25rem;
+    li:not(.social-media__btn) {
+      margin: 0 1rem;
       cursor: pointer;
 
       &:last-child {
@@ -16,11 +17,11 @@
       }
 
       &:hover {
-        color: $color--hover;
+        color: $color--primary;
       }
 
       &.active {
-        color: $color--hover;
+        color: $color--primary;
       }
     }
   }

@@ -1,4 +1,6 @@
 const React = require('react');
+import SocialMediaBtn from './SocialMediaBtn';
+import SocialMedia from './SocialMedia';
 
 export default class Nav extends React.Component {
   constructor() {
@@ -14,6 +16,7 @@ export default class Nav extends React.Component {
             return <li key={key} className={navItems[item].active}>{navItems[item].text}</li>;
           })}
         </ul>
+        <SocialMedia />
       </nav>
     )
   }
