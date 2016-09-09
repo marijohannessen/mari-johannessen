@@ -1,48 +1,38 @@
-$text-color: black;
-
 .tiles {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
   margin-bottom: 5rem;
-  padding: 12% 5% 8%;
-  background-image: linear-gradient($color--primary 10%, white 0);
+  padding: 5%;
 }
 
 .tile {
   width: 32.5%;
   height: 300px;
-  background-image: linear-gradient($color--text 20%, white 0);
-  border: 3px solid $color--text;
-  color: $color--text;
-  padding: 5rem 1.25rem;
+  background-color: $color--primary;
+  color: black;
+  padding: 5rem 3rem;
   text-decoration: none;
   margin: 0 1% 1% 0;
   font-family: 'Roboto', sans-serif;
   display: flex;
-  transition: .3s ease-in;
-  position: relative;
+  transition: .3s ease-in-out;
   flex-direction: column;
 
   &__label {
     text-transform: uppercase;
-    font-size: .875rem;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: white;
+    font-size: .775rem;
   }
 
   &__heading {
-    font-weight: 300;
-    font-size: 1.75rem;
-    padding-left: 3rem;
+    font-weight: 400;
+    font-size: 2rem;
+    padding-top: .5rem;
   }
 
   &.pagelink {
-    background-color: transparent;
-    border: 2px solid $text-color;
+    background-color: $color--secondary;
     align-items: center;
     justify-content: center;
 
@@ -73,7 +63,6 @@ $text-color: black;
   }
 
   &:hover {
-    background-color: $text-color;
-    color: $color--primary;
+    background-color: $color--secondary;
   }
 }

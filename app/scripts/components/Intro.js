@@ -12,7 +12,7 @@ export default class Intro extends React.Component {
       <div className="intro">
         <Header navItems={this.props.navItems} />
         <h1>Hello there.</h1>
-        <h3>I am a <span class="bold">Front End Developer</span> with a passion for<br /> great design, creative interactions and writing smart code.</h3>
+        <h3>I am a <span class="bold">Front End Developer</span> based in Austin, TX<br /> with a passion for great design, creative interactions and writing smart code.</h3>
         <h3>I also like to <a href="http://www.codepen.io/marijohannessen">play around with Codepen</a>, <a href="http://marijohannessen.github.io">write</a> and <a href="http://www.spotify.com/marijohannessen">listen to music</a>.</h3>
         <div className="arrow">
           <svg viewBox="0 0 54 54">
