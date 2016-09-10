@@ -13,6 +13,7 @@ import Intro from './scripts/components/Intro';
 import Blogposts from './scripts/components/Blogposts';
 import InteractiveApp from './scripts/InteractiveApp';
 import SocialMedia from './scripts/components/SocialMedia';
+import SideHeader from './scripts/components/SideHeader';
 
 import { hashHistory } from 'react-router';
 import 'babel-polyfill';
@@ -104,7 +105,8 @@ class App extends React.Component {
     <div>
       <div className="container">
         {/*<Header navItems={navItems} />*/}
-        <Intro navItems={navItems} />
+        <SideHeader />
+        <Intro />
         <Tiles />
         <Codepens data={this.state.data} />
         <Projects />
