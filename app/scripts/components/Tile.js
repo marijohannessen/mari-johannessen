@@ -12,6 +12,7 @@ class Tile extends React.Component {
     const double = this.props.double;
     const pageLink = this.props.pageLink;
     const centered = this.props.centered;
+    const desc = this.props.desc;
 
     let tile;
     let classNames = "tile";
@@ -30,8 +31,11 @@ class Tile extends React.Component {
 
     return (
       <a href={link} className={classNames}>
-        <span className="tile__label">{label}</span>
-        <h1 className="tile__heading">{heading}</h1>
+        <div className="tile__info">
+          <h1 className="tile__heading">{heading}</h1>
+          <p className="tile__desc">{desc}</p>
+        </div>
+        <a href={link} className="tile__view-more">View Project</a>
       </a>
     )
   }

@@ -12,13 +12,44 @@
   height: 300px;
   background-color: $color--primary;
   color: black;
-  padding: 5rem 3rem;
+  padding: 3rem 3rem;
   text-decoration: none;
   margin: 0 1% 1% 0;
   font-family: 'Roboto', sans-serif;
   display: flex;
-  transition: .3s ease-in-out;
   flex-direction: column;
+  transition: .3s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+
+    .tile__info {
+      transform: translateY(10%);
+    }
+
+    .tile__view-more {
+      transform: translateY(0);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(50%);
+    transition: .4s ease-in-out;
+  }
+
+  &__view-more {
+    text-decoration: none;
+    color: black;
+    padding: .75rem 1rem;
+    border: 2px solid black;
+    margin-top: 2rem;
+    align-self: center;
+    transform: translateY(200%);
+    transition: .4s ease-in-out;
+  }
 
   &__label {
     text-transform: uppercase;
@@ -27,8 +58,13 @@
 
   &__heading {
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  &__desc {
     padding-top: .5rem;
+    text-align: center;
+    font-size: .875rem;
   }
 
   &.pagelink {
@@ -50,10 +86,9 @@
     justify-content: center;
 
     .tile__label {
-      order: 2;
       text-transform: capitalize;
       font-size: 1rem;
-      padding-top: .5rem;
+      display: none;
     }
   }
 

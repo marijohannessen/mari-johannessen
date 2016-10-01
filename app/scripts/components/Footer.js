@@ -10,7 +10,7 @@ export default class Header extends React.Component {
     return (
       <footer className="footer">
         <div className="footer__info">
-          <h3>Mari Johannessen</h3>
+          <h3>Handmade by <a href="mailto:mari.l.johannessen@gmail.com">Mari Johannessen</a></h3>
           <h3>Front-End Developer</h3>
         </div>
       </footer>

@@ -38,6 +38,19 @@ class App extends React.Component {
   componentDidMount() {
     this.loadCodepens();
     this.loadBlogposts();
+    window.addEventListener('scroll', (evt) => {
+      this.checkScroll();
+    });
+  }
+
+  checkScroll() {
+    let topPos = window.scrollY;
+    let height = (document.querySelector('.intro').clientHeight - 400);
+    if (topPos > height) {
+      document.querySelector('.sidenav').classList.add('hidden');
+    } else {
+      document.querySelector('.sidenav').classList.remove('hidden');
+    }
   }
 
   getCallback() {
@@ -105,12 +118,12 @@ class App extends React.Component {
     <div>
       <div className="container">
         {/*<Header navItems={navItems} />*/}
-        <SideHeader />
+        {/*<SideHeader />*/}
         <Intro />
-        <Tiles />
-        <Codepens data={this.state.data} />
-        <Projects />
-        <Blogposts blogposts={this.state.blogposts} />
+        {/*<Projects />*/}
+        {/*<Tiles />*/}
+        {/*<Codepens data={this.state.data} />*/}
+        {/*<Blogposts blogposts={this.state.blogposts} />*/}
       </div>
       <Footer />
     </div>

@@ -12,9 +12,14 @@ class Projects extends React.Component {
       <div className="projects">
         <h3 className="section__heading">Projects</h3>
         <div>
-          <Tile heading="Sleet" link="http://portfolio.marijohannessen.com/weather.html" label="Weather App" centered />
-          <Tile heading="How Much?" link="http://portfolio.marijohannessen.com/currency.html" label="Currency Converter" centered />
-          <Tile heading="HipsterHop" link="http://portfolio.marijohannessen.com/hipsterhop.html" label="Flat Login Design" centered />
+          <Tile heading="Sleet" link="http://portfolio.marijohannessen.com/weather.html" label="Weather App" desc="Made with React and Javascript" centered />
+          <Tile heading="How Much?" link="http://portfolio.marijohannessen.com/currency.html" label="Currency Converter" desc="Made with React and Javascript" centered />
+          <Tile heading="HipsterHop" link="http://portfolio.marijohannessen.com/hipsterhop.html" label="Flat Login Design" desc="Made with React and Javascript" centered />
+          <Tile heading="HipsterHop" link="http://portfolio.marijohannessen.com/hipsterhop.html" label="Flat Login Design" desc="Made with React and Javascript" centered />
+          <Tile heading="HipsterHop" link="http://portfolio.marijohannessen.com/hipsterhop.html" label="Flat Login Design" desc="Made with React and Javascript" centered />
+          <Tile heading="HipsterHop" link="http://portfolio.marijohannessen.com/hipsterhop.html" label="Flat Login Design" desc="Made with React and Javascript" centered />
+          <Tile heading="HipsterHop" link="http://portfolio.marijohannessen.com/hipsterhop.html" label="Flat Login Design" desc="Made with React and Javascript" centered />
+          <Tile heading="HipsterHop" link="http://portfolio.marijohannessen.com/hipsterhop.html" label="Flat Login Design" desc="Made with React and Javascript" centered />
         </div>
       </div>
     )

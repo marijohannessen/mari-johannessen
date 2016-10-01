@@ -10,11 +10,6 @@ export default class SideHeader extends React.Component {
   render() {
     return (
       <nav className="sidenav">
-        {/*<div className="logo">
-          <h3>M<span>ari</span></h3>
-          <h3>J<span>ohannessen</span></h3>
-        </div>*/}
-        <p>MENU</p>
         <ul>
           <li>Featured</li>
           <li>Codepens</li>

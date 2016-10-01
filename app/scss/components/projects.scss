@@ -5,19 +5,33 @@
   font-family: 'Roboto', sans-serif;
   padding: 0 5%;
 
+  .section__heading {
+    margin-left: 1.5%;
+  }
+
   div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 1rem;
+    flex-wrap: wrap;
   }
 
   .tile {
-    margin-right: 1rem;
-    background-color: $color--primary;
+    width: 23%;
+    height: 23%;
+    margin: 1%;
+    background-color: $color--secondary;
 
-    &:last-child {
-      margin-right: 0;
+    &:hover {
+      background-color: $color--primary;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+    }
+
+    span {
+      font-size: 1rem;
     }
   }
 }
