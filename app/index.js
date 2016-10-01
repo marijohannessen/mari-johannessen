@@ -117,13 +117,7 @@ class App extends React.Component {
     return (
     <div>
       <div className="container">
-        {/*<Header navItems={navItems} />*/}
-        {/*<SideHeader />*/}
         <Intro />
-        {/*<Projects />*/}
-        {/*<Tiles />*/}
-        {/*<Codepens data={this.state.data} />*/}
-        {/*<Blogposts blogposts={this.state.blogposts} />*/}
       </div>
       <Footer />
     </div>
