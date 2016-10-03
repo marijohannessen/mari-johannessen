@@ -10,7 +10,7 @@ class SectionList extends React.Component {
     const list = this.props.list;
 
     return (
-      <div data-section className={this.props.classNames}>
+      <div id={this.props.id} data-section className={this.props.classNames}>
         <h3 className="section__heading">{listHeading}</h3>
         <ul className="section__list">
           {Object.keys(list).map(this.props.renderMethod)}

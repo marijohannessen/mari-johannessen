@@ -2,9 +2,20 @@
   display: flex;
   flex-direction: column;
   transition: .7s;
-  margin-bottom: 3rem;
+  margin-bottom: 10rem;
   margin-top: 8rem;
   padding: 0 6.5%;
+  transform: scale(0);
+
+  &.expand {
+    transform: scale(1);
+  }
+
+  @media all and (max-width: 600px) {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    transform: scale(1);
+  }
 
   &__list {
     display: flex;
@@ -44,6 +55,10 @@
         font-size: 1rem;
         padding: 1.5rem 1rem;
         letter-spacing: .5px;
+
+        @media all and (max-width: 600px) {
+          font-size: .875rem;
+        }
       }
 
       @for $i from 4 to 9 {

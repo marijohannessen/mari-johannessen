@@ -1,5 +1,6 @@
 const React = require('react');
 import Header from './Header';
+import SocialMedia from './SocialMedia';
 
 export default class Intro extends React.Component {
   constructor() {
@@ -23,9 +24,8 @@ export default class Intro extends React.Component {
     return (
       <div className="intro" onMouseMove={this.moveMountains}>
         <h1>Hello there.</h1>
-        <p>My name is Mari Johannessen, and I am a <span class="bold">Front End Developer</span><br /> based in Austin, TX with a passion for great design, creative interactions<br /> and writing smart code.</p>
-        <p><strong>More content is coming soon.</strong></p>
-        <p>I also like to <a href="http://www.codepen.io/marijohannessen">play around with Codepen</a>, <a href="http://marijohannessen.github.io">write</a> and <a href="http://www.spotify.com/marijohannessen">listen to music</a>.</p>
+        <p>My name is Mari Johannessen, and I am a <span class="bold">Front End Developer</span> based in Austin, TX with a passion for great design, creative user interactions and writing smart, organized code.</p>
+        <p>I also like to <a href="http://www.codepen.io/marijohannessen">play around with Codepen</a>, <a href="http://www.github.com/marijohannessen">learn new skills</a> and <a href="http://marijohannessen.github.io">blog</a>.</p>
         {/*<div className="triangle"></div>
         <div className="triangle-right"></div>*/}
         <div className="ill">

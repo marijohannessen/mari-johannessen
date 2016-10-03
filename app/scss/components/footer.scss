@@ -3,6 +3,7 @@
   background-color: $color--secondary;
   width: 100%;
   padding: 2rem;
+  margin-top: 5rem;
 
   h3 {
     font-weight: 400;
@@ -11,11 +12,11 @@
   }
 
   a {
-    color: $color--hover;
+    color: black;
     transition: .3s;
 
     &:hover {
-      color: $color--primary;
+      color: $color--hover;
     }
   }
 }

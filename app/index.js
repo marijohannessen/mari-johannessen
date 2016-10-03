@@ -47,9 +47,57 @@ class App extends React.Component {
     let topPos = window.scrollY;
     let height = (document.querySelector('.intro').clientHeight - 400);
     if (topPos > height) {
-      document.querySelector('.sidenav').classList.add('hidden');
+      document.querySelector('.sidenav').classList.add('top');
+    } else if (topPos < height){
+      document.querySelector('.sidenav').classList.remove('top');
+    } else if (topPos === 0) {
+      document.querySelector('.sidenav').classList.remove('top');
+    }
+
+    const projects = document.querySelector('#projects').getBoundingClientRect().top;
+    const codepen = document.querySelector('#codepens').getBoundingClientRect().top;
+    const body = document.body.getBoundingClientRect().top;
+    const offset = projects - body;
+    const links = document.querySelectorAll('.page-link');
+    if (topPos > 180) {
+      setTimeout(() => {
+        document.querySelector('.projects').classList.add('expand');
+      }, 300);
+      links.forEach(link => {
+        if (topPos < 1100) {
+          if (link.hash === '#projects') {
+            link.parentElement.classList.add('active');
+          }
+        } else {
+          link.parentElement.classList.remove('active');
+        }
+      });
     } else {
-      document.querySelector('.sidenav').classList.remove('hidden');
+      links.forEach(link => {
+        if (link.hash === '#projects') {
+          link.parentElement.classList.remove('active');
+        }
+      });
+    }
+    if (topPos > 1156) {
+      setTimeout(() => {
+        document.querySelector('#codepens').classList.add('expand');
+      }, 300);
+      links.forEach(link => {
+        if (topPos > 1100) {
+          if (link.hash === '#codepens') {
+            link.parentElement.classList.add('active');
+          }
+        } else {
+          link.parentElement.classList.remove('active');
+        }
+      });
+    } else {
+      links.forEach(link => {
+        if (link.hash === '#codepens') {
+          link.parentElement.classList.remove('active');
+        }
+      });
     }
   }
 
@@ -107,9 +155,13 @@ class App extends React.Component {
 
     if (this.state.loading || this.state.loading2) {
       return (
-        <div className="container">
-          <Header navItems={navItems} />
-          <Tiles />
+        <div>
+          <div className="container">
+            <SideHeader />
+            <Intro />
+            <Projects />
+            <Footer />
+          </div>
         </div>
       )
     }
@@ -117,9 +169,12 @@ class App extends React.Component {
     return (
     <div>
       <div className="container">
+        <SideHeader />
         <Intro />
+        <Projects />
+        <Codepens data={this.state.data} />
+        <Footer />
       </div>
-      <Footer />
     </div>
     )
   }

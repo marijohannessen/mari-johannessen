@@ -76,7 +76,7 @@ class Codepens extends React.Component {
   }
 
   render() {
-    return <SectionList classNames="section" viewAllLink="http://www.codepen.io/marijoha" viewAllText="All Codepens" listHeading="Recent Codepens" list={this.state.codepens} renderMethod={this.renderItems.bind(this)}/>;
+    return <SectionList classNames="section" id="codepens" viewAllLink="http://www.codepen.io/marijoha" viewAllText="All Codepens" listHeading="Recent Codepens" list={this.state.codepens} renderMethod={this.renderItems.bind(this)}/>;
   }
 };
 

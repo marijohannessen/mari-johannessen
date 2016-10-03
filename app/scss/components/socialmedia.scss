@@ -1,12 +1,13 @@
 .social-media {
   display: flex;
+  flex-direction: row;
   list-style: none;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
-  margin-left: 2rem;
+  padding-top: .5rem;
 
   &__btn {
-    margin-right: .5rem;
+    margin-right: 1rem;
     transition: .4s ease-in-out;
 
     &:last-child {
@@ -14,7 +15,7 @@
     }
 
     svg {
-      width: 1.2rem;
+      width: 1.4rem;
     }
 
     &:hover {
