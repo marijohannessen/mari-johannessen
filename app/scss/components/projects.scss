@@ -4,11 +4,11 @@
   margin: 5rem 0 7rem;
   font-family: 'Roboto', sans-serif;
   padding: 0 5%;
-  transform: scale(0);
+  opacity: 0;
   transition: .5s;
 
   &.expand {
-    transform: scale(1);
+    opacity: 1;
   }
 
   @media all and (max-width: 550px) {
@@ -51,10 +51,6 @@
 
     h1 {
       font-size: 1.7rem;
-    }
-
-    span {
-      font-size: 1rem;
     }
   }
 }

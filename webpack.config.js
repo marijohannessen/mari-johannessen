@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const validate = require('webpack-validator');
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // HMR Config
 const parts = require('./libs/parts.js');
@@ -41,8 +42,7 @@ const common = {
       },
       {
         test: /\.scss$/,
-        include: PATHS.app,
-        loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']
+        loader: ExtractTextPlugin.extract('css!sass')
       }
     ]
   },
@@ -56,9 +56,12 @@ const common = {
     new HtmlWebpackPlugin({
       title: 'Mari Johannessen',
       template: 'app/views/index.html',
+    }),
+    new ExtractTextPlugin('style.css', {
+      allChunks: true
     })
   ]
-};
+}
 
 var config;
 

@@ -8,7 +8,7 @@ class SocialMediaBtn extends React.Component {
   render() {
 
     return (
-      <li className="social-media__btn">
+      <li style={{opacity: 0}} className="social-media__btn">
         <a href={this.props.link} target="_blank">
           {this.props.svgFile}
         </a>

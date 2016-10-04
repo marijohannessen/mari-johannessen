@@ -37,7 +37,6 @@ export default class SideHeader extends React.Component {
   render() {
     return (
       <nav className="sidenav">
-        <h1>Mari Johannessen</h1>
         <ul className="menu">
           <li><a onClick={this.scrollToSection} className="page-link" href="#projects">Projects</a></li>
           <li><a onClick={this.scrollToSection} className="page-link" href="#codepens">Codepens</a></li>

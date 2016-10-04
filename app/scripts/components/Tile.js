@@ -35,7 +35,7 @@ class Tile extends React.Component {
           <h1 className="tile__heading">{heading}</h1>
           <p className="tile__desc">{desc}</p>
         </div>
-        <a href={link} className="tile__view-more">View Project</a>
+        <p href={link} className="tile__view-more">View Project</p>
       </a>
     )
   }

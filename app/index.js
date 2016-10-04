@@ -33,6 +33,12 @@ class App extends React.Component {
       data: [],
       blogposts: {},
     }
+
+    setTimeout(() => {
+      [... document.querySelectorAll('.social-media__btn')].forEach(btn => {
+        btn.style.opacity = '1';
+      });
+    }, 1000);
   }
 
   componentDidMount() {
