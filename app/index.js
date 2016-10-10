@@ -59,51 +59,58 @@ class App extends React.Component {
     } else if (topPos === 0) {
       document.querySelector('.sidenav').classList.remove('top');
     }
-
-    const projects = document.querySelector('#projects').getBoundingClientRect().top;
-    const codepen = document.querySelector('#codepens').getBoundingClientRect().top;
-    const body = document.body.getBoundingClientRect().top;
-    const offset = projects - body;
-    const links = document.querySelectorAll('.page-link');
-    if (topPos > 180) {
-      setTimeout(() => {
-        document.querySelector('.projects').classList.add('expand');
-      }, 300);
-      links.forEach(link => {
-        if (topPos < 1100) {
-          if (link.hash === '#projects') {
-            link.parentElement.classList.add('active');
-          }
-        } else {
-          link.parentElement.classList.remove('active');
-        }
-      });
-    } else {
-      links.forEach(link => {
-        if (link.hash === '#projects') {
-          link.parentElement.classList.remove('active');
-        }
-      });
+    let projects;
+    let codepen;
+    if (document.querySelector('#projects')) {
+      projects = document.querySelector('#projects').getBoundingClientRect().top;
     }
-    if (topPos > 1156) {
-      setTimeout(() => {
-        document.querySelector('#codepens').classList.add('expand');
-      }, 300);
-      links.forEach(link => {
-        if (topPos > 1100) {
-          if (link.hash === '#codepens') {
-            link.parentElement.classList.add('active');
+    if (document.querySelector('#codepens')) {
+      codepen = document.querySelector('#codepens').getBoundingClientRect().top;
+    }
+    if (projects && codepen) {
+      const body = document.body.getBoundingClientRect().top;
+      const offset = projects - body;
+      const links = document.querySelectorAll('.page-link');
+      if (topPos > 180) {
+        setTimeout(() => {
+          document.querySelector('.projects').classList.add('expand');
+        }, 300);
+        links.forEach(link => {
+          if (topPos < 1100) {
+            if (link.hash === '#projects') {
+              link.parentElement.classList.add('active');
+            }
+          } else {
+            link.parentElement.classList.remove('active');
           }
-        } else {
-          link.parentElement.classList.remove('active');
-        }
-      });
-    } else {
-      links.forEach(link => {
-        if (link.hash === '#codepens') {
-          link.parentElement.classList.remove('active');
-        }
-      });
+        });
+      } else {
+        links.forEach(link => {
+          if (link.hash === '#projects') {
+            link.parentElement.classList.remove('active');
+          }
+        });
+      }
+      if (topPos > 1156) {
+        setTimeout(() => {
+          document.querySelector('#codepens').classList.add('expand');
+        }, 300);
+        links.forEach(link => {
+          if (topPos > 1100) {
+            if (link.hash === '#codepens') {
+              link.parentElement.classList.add('active');
+            }
+          } else {
+            link.parentElement.classList.remove('active');
+          }
+        });
+      } else {
+        links.forEach(link => {
+          if (link.hash === '#codepens') {
+            link.parentElement.classList.remove('active');
+          }
+        });
+      }
     }
   }
 
@@ -159,7 +166,7 @@ class App extends React.Component {
       },
     };
 
-    if (this.state.loading || this.state.loading2) {
+    if (this.state.loading) {
       return (
         <div>
           <div className="container">
