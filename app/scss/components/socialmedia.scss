@@ -8,7 +8,7 @@
 
   &__btn {
     margin-right: 1rem;
-    transition: .4s ease-in-out;
+    transition: .3s ease-in-out;
 
     &:last-child {
       margin-right: 0;
@@ -16,10 +16,19 @@
 
     svg {
       width: 1.4rem;
+      transition: .2s ease-in-out;
     }
 
     &:hover {
-      opacity: .5;
+      transform: scale(1.1);
+    }
+
+    & a:focus {
+      outline: none;
+
+      svg {
+        transform: scale(1.2);
+      }
     }
   }
 }

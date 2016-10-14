@@ -23,7 +23,7 @@ export default class SideHeader extends React.Component {
     console.log(element);
     if (id === 'projects') {
       element = 856;
-    } else if (id === 'codepens') {
+    } else if (id === 'about') {
       element = 1597;
     }
     const body = document.body.getBoundingClientRect().top;
@@ -39,7 +39,7 @@ export default class SideHeader extends React.Component {
       <nav className="sidenav">
         <ul className="menu">
           <li><a onClick={this.scrollToSection} className="page-link" href="#projects">Projects</a></li>
-          <li><a onClick={this.scrollToSection} className="page-link" href="#codepens">Codepens</a></li>
+          <li><a onClick={this.scrollToSection} className="page-link" href="#about">About</a></li>
           <li><a href="http://marijohannessen.github.io">Blog</a></li>
           <li><a href="mailto:mari.l.johannessen@gmail.com">Get in touch</a></li>
           <li><SocialMedia /></li>

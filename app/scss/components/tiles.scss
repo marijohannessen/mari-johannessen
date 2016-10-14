@@ -25,7 +25,8 @@
   transition: .3s ease-in-out;
   overflow: hidden;
 
-  &:hover {
+  &:hover,
+  &:focus {
 
     .tile__info {
       transform: translateY(10%);
@@ -49,10 +50,15 @@
     color: black;
     padding: .75rem 1rem;
     border: 2px solid black;
+    background-color: $color__primary;
     margin-top: 2rem;
     align-self: center;
     transform: translateY(300%);
     transition: .4s ease-in-out;
+
+    &:hover {
+      background-color: $color__secondary;
+    }
   }
 
   &__label {

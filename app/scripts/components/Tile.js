@@ -5,6 +5,14 @@ class Tile extends React.Component {
     super(props);
   }
 
+  addHoverState = () => {
+    this.refs.link.style.backgroundImage = 'linear-gradient(rgba(230,168,255, .95),rgba(230,168,255, .95)),url(' + this.props.imgUrl + ')';
+  }
+
+  removeHoverState = () => {
+    this.refs.link.style.backgroundImage = 'linear-gradient(rgba(230,168,255, 1),rgba(230,168,255, 1)),url(' + this.props.imgUrl + ')';
+  }
+
   render() {
     const link = this.props.link;
     const label = this.props.label;
@@ -13,6 +21,7 @@ class Tile extends React.Component {
     const pageLink = this.props.pageLink;
     const centered = this.props.centered;
     const desc = this.props.desc;
+    const imgUrl = this.props.imgUrl;
 
     let tile;
     let classNames = "tile";
@@ -30,7 +39,7 @@ class Tile extends React.Component {
     }
 
     return (
-      <a href={link} className={classNames}>
+      <a ref="link" href={link} target="_blank" className={classNames} onFocus={this.addHoverState} onBlur={this.removeHoverState} onMouseOver={this.addHoverState} onMouseLeave={this.removeHoverState}>
         <div className="tile__info">
           <h1 className="tile__heading">{heading}</h1>
           <p className="tile__desc">{desc}</p>

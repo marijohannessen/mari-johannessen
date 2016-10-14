@@ -26,8 +26,6 @@ export default class Intro extends React.Component {
         <h1>Hello there.</h1>
         <p>My name is Mari Johannessen, and I am a <span class="bold">Front End Developer</span> based in Austin, TX with a passion for great design, creative user interactions and writing smart, organized code.</p>
         <p>I also like to <a href="http://www.codepen.io/marijohannessen">play around with Codepen</a>, <a href="http://www.github.com/marijohannessen">learn new skills</a> and <a href="http://marijohannessen.github.io">blog</a>.</p>
-        {/*<div className="triangle"></div>
-        <div className="triangle-right"></div>*/}
         <div className="ill">
           <svg className="building" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.135 414.644">
             <path d="M73.62 291.402c-.408-1.276-.77-3.398-.77-4.76.005-63.052.132-126.105.048-189.157-.003-2.365-1.91-4.733-2.952-7.09-.8-1.808-2.325-3.594-2.344-5.402-.18-17.11-.056-34.22-.17-51.33-.013-2.104-.212-5.034-1.532-6.132-3.074-2.558-3.708-5.79-2.795-8.852 2.91-9.755-6.42-12.492-10.048-18.456C52.9-.034 52.16.01 51.69.01 42.374-.003 33.06 0 23.745 0c-.942 2.55-2.258 4.303-3.952 5.533-2.887 2.097-4.772 4.498-4.554 8.278.155 2.685.162 5.397-.05 8.074-.08 1.035-.7 2.565-1.496 2.914-4.085 1.794-4.667 5.08-4.648 8.987.083 16.952.078 33.905-.018 50.857-.01 1.53-.6 4.198-1.41 4.4-5.558 1.395-5.803 5.393-5.796 9.945.086 60.996.118 121.992.126 182.987 0 2.79-.35 5.578-.55 8.547H0c.024 3.095.293 6.2 1.245 9.532.382 1.685.744 3.37 1.09 5.053-.132-4.698-.367-9.384-.757-14.053.39 4.67.624 9.355.757 14.053 7.575 36.87 6.725 73.27 4.21 109.54h71.86c3.366-4.165 5.637-9.305 6.173-13.592 5.982-36.884-6.916-72.774-10.96-109.65z"/>

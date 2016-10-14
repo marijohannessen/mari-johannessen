@@ -37,7 +37,6 @@
       position: absolute;
       bottom: 20px;
       left: 270px;
-      // right: 0;
       fill: $color--primary;
       transition: .3s;
     }
@@ -116,8 +115,6 @@
   }
 
   h1 {
-    // margin-top: 3rem;
-    // font-size: 4rem;
     margin-top: 10rem;
     font-size: 5.5rem;
     margin-bottom: 1rem;
@@ -143,10 +140,6 @@
     margin-top: 0;
     max-width: 900px;
     line-height: 1.5;
-    // line-height: 1.75;
-    // font-size: 1.3rem;
-    // margin-top: 2rem;
-    // margin-left: .5rem;
 
     @media screen and (max-width: 845px) {
       max-width: 800px;
@@ -162,9 +155,16 @@
       background-repeat: no-repeat;
       transition: all .4s ease;
       font-weight: 400;
+      padding: .125rem;
 
       &:hover {
         background-size: 100% 100%;
+      }
+
+      &:focus {
+        background-color: $color__primary;
+        color: #383838;
+        outline: none;
       }
     }
   }

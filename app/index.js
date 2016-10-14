@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import Header from './scripts/components/Header';
 import Footer from './scripts/components/Footer';
@@ -42,8 +42,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.loadCodepens();
-    this.loadBlogposts();
     window.addEventListener('scroll', (evt) => {
       this.checkScroll();
     });
@@ -60,14 +58,10 @@ class App extends React.Component {
       document.querySelector('.sidenav').classList.remove('top');
     }
     let projects;
-    let codepen;
     if (document.querySelector('#projects')) {
       projects = document.querySelector('#projects').getBoundingClientRect().top;
     }
-    if (document.querySelector('#codepens')) {
-      codepen = document.querySelector('#codepens').getBoundingClientRect().top;
-    }
-    if (projects && codepen) {
+    if (projects) {
       const body = document.body.getBoundingClientRect().top;
       const offset = projects - body;
       const links = document.querySelectorAll('.page-link');
@@ -129,55 +123,7 @@ class App extends React.Component {
     });
   }
 
-  loadCodepens() {
-    $.ajax({
-      url: "./app/codepen.xml",
-      dataType: 'xml',
-      cache: false,
-      success: function(data) {
-        this.setState({
-          loading: false,
-          data
-        })
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error("./app/codepen.xml", status, err.toString());
-      }.bind(this)
-    });
-  }
-
   render() {
-    const navItems = {
-      // navItem1: {
-      //   text: 'Home',
-      //   active: 'active'
-      // },
-      // navItem2: {
-      //   text: 'Projects'
-      // },
-      navItem3: {
-        text: 'About'
-      },
-      navItem4: {
-        text: 'Blog'
-      },
-      navItem5: {
-        text: 'Get in touch'
-      },
-    };
-
-    if (this.state.loading) {
-      return (
-        <div>
-          <div className="container">
-            <SideHeader />
-            <Intro />
-            <Projects />
-            <Footer />
-          </div>
-        </div>
-      )
-    }
 
     return (
     <div>
@@ -185,7 +131,6 @@ class App extends React.Component {
         <SideHeader />
         <Intro />
         <Projects />
-        <Codepens data={this.state.data} />
         <Footer />
       </div>
     </div>
@@ -193,11 +138,4 @@ class App extends React.Component {
   }
 };
 
-var routes = (
-  <Router history={browserHistory}>
-    <Route path="/" component={App} />
-    <Route path="/interactive" component={InteractiveApp} />
-  </Router>
-)
-
-render(routes, document.querySelector('#app'));
+ReactDOM.render(<App />, document.querySelector('#app'));
