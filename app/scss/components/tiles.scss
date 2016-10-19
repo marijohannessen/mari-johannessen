@@ -54,9 +54,10 @@
     margin-top: 2rem;
     align-self: center;
     transform: translateY(300%);
-    transition: .4s ease-in-out;
+    transition: .3s;
 
     &:hover {
+      border: 2px solid transparent;
       background-color: $color__secondary;
     }
   }

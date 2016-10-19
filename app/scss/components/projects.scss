@@ -61,17 +61,22 @@
     display: flex;
     margin-left: 1%;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 
     li button {
       padding: .5rem 1rem;
       background-color: $color__secondary;
       margin-right: .25rem;
+      margin-top: .25rem;
       border: none;
       font-size: 1rem;
       font-family: inherit;
-      width: 10rem;
       cursor: pointer;
       transition: .3s ease-in-out;
+
+      @media screen and (max-width: 600px) {
+        font-size: 1.25rem;
+      }
 
       &:hover,
       &:focus {
