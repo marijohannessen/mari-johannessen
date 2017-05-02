@@ -5,7 +5,9 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
+import Creative from './components/Creative';
 import Intro from './components/Intro';
+import Contact from './components/Contact';
 import SocialMedia from './components/SocialMedia';
 import ReactGA from 'react-ga';
 ReactGA.initialize('UA-61267854-1');
@@ -20,6 +22,8 @@ class App extends React.Component {
         <div className="container dark-theme">
           <Intro />
           <Projects />
+          {/*<Creative />*/}
+          <Contact />
         </div>
       </div>
     );
@@ -35,5 +39,5 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" onUpdate={logPageView} component={App} />
   </Router>,
-  document.querySelector('#app'),
+  document.querySelector('#app')
 );
