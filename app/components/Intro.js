@@ -1,4 +1,5 @@
-const React = require('react');
+import React from 'react';
+import { Link } from 'react-router-dom';
 import SocialMedia from './SocialMedia';
 
 export default class Intro extends React.Component {
@@ -7,6 +8,11 @@ export default class Intro extends React.Component {
 
     return (
       <div className="intro" onMouseMove={this.moveMountains}>
+        <div className="links">
+          {/*<Link className="blog-link" to="/projects">Projects</Link>*/}
+          <Link className="blog-link" to="/blog">Blog</Link>
+          {/*<Link className="blog-link" to="/contact">Contact</Link>*/}
+        </div>
         <h1>Hello there.</h1>
         <p>
           My name is Mari Johannessen, and I am a

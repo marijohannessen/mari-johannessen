@@ -1,92 +1,39 @@
 const path = require('path');
-const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const validate = require('webpack-validator');
-const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// HMR Config
-const parts = require('./libs/parts.js');
-
-const PATHS = {
-  app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'app/dist')
-}
-
-const common = {
-  entry: {
-    app: PATHS.app
-  },
+module.exports = {
+  entry: [
+    require.resolve('react-dev-utils/webpackHotDevClient'),
+    './app/index.js',
+  ],
   output: {
-    path: PATHS.build,
-    // publicPath: '/egan-realty/',
     filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    historyApiFallback: true
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.svg$/,
-        loader: 'svg-url-loader'
-      },
-      {
-        test: /\.(png|jpg|jpeg)$/,
-        loader: 'url-loader'
-      },
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
+        test: /\.js$/,
+        exclude: path.resolve(__dirname, 'node_modules'),
         loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react', 'stage-0']
-        }
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass')
-      }
-    ]
-  },
-  postcss: function () {
-        return [autoprefixer];
-  },
-  resolve: {
-    extensions: ['', '.js', '.json', '.jsx']
+        loader: 'style-loader!css-loader?importLoaders=1!postcss-loader!sass-loader',
+      },
+      {
+        test: /\.(jpg|gif|png)$/,
+        loader: 'url-loader',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Mari Johannessen',
-      template: 'app/views/index.html',
+      inject: true,
+      template: './app/index.html',
     }),
-    new ExtractTextPlugin('style.css', {
-      allChunks: true
-    })
-  ]
-}
-
-var config;
-
-switch(process.env.npm_lifecycle_event) {
-  case 'build':
-    config = merge(
-      common,
-      {
-        devtool: 'source-map'
-      },
-      parts.minify()
-    );
-    break;
-  default:
-    config = merge(
-      common,
-      {
-        devtool: 'eval-source-map'
-      },
-      parts.devServer({
-        // Customize host/port here if needed
-        host: process.env.HOST,
-        port: process.env.PORT
-      })
-  );
-}
-
-module.exports = config;
+  ],
+};

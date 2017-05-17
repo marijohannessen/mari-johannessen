@@ -2,36 +2,89 @@
   width: 100%;
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   padding: 4rem 5% 7rem;
   background-color: $color--secondary;
 
-  h2 {
+  @media all and (min-width: 675px) {
+    flex-direction: row;
+  }
+
+  h2, button {
     font-family: 'Lato';
-    margin: 3rem 0 4rem;
-    font-size: 40px;
+    margin: .5rem 0 0;
+    font-size: 24px;
+    background: none;
+    border: none;
+    position: relative;
+    font-weight: 700;
+    padding-bottom: .25rem;
+
+    @media all and (min-width: 675px) {
+      font-size: 30px;
+    }
   }
 
-  form {
-    width: 100%;
-    padding: 0 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  button {
+    border-bottom: 1px dashed black;
+    margin-left: .5rem;
+    cursor: pointer;
+    transition: .3s ease;
   }
 
-  fieldset {
-    border: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  button:after {
+    content: '(Click to copy)';
+    display: block;
+    position: absolute;
+    font-size: 14px;
+    left: 120px;
+    bottom: -32px;
+    opacity: .5;
+    color: black;
 
-    label {
-      font-size: 1.25rem;
-      font-family: 'Roboto';
+    @media all and (min-width: 675px) {
+      left: 50px;
+    }
+  }
+
+  button:before {
+    content: 'My email address was successfully copied to your clipboard!';
+    display: block;
+    position: absolute;
+    font-size: 16px;
+    background: $color--secondary;
+    padding: 1rem;
+    bottom: -68px;
+    left: -135px;
+    z-index: 3;
+    opacity: 0;
+    color: black;
+    transition: .3s ease;
+  }
+
+  button {
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      color: $color--hover;
+      border-color: $color--hover;
+
+      button:after {
+        color: black;
+      }
+
+      button:before {
+        color: black;
+      }
+    }
+
+    &.copied {
+      &:before {
+        opacity: 1;
+      }
     }
   }
 }

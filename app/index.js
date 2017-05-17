@@ -2,13 +2,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router';
-import Footer from './components/Footer';
-import Projects from './components/Projects';
-import Creative from './components/Creative';
-import Intro from './components/Intro';
-import Contact from './components/Contact';
-import SocialMedia from './components/SocialMedia';
+import { Switch, BrowserRouter as Router, Route, IndexRoute, Link } from 'react-router-dom';
+import Blog from './components/Blog';
+import Home from './components/Home';
 import ReactGA from 'react-ga';
 ReactGA.initialize('UA-61267854-1');
 
@@ -18,26 +14,18 @@ require('./scss/main.scss');
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <div className="container dark-theme">
-          <Intro />
-          <Projects />
-          {/*<Creative />*/}
-          <Contact />
-        </div>
-      </div>
+      <main>
+        <Route exact path="/" component={Home} />
+        <Route path="/blog" component={Blog}></Route>
+        <Route path="/:section" component={Home}></Route>
+      </main>
     );
   }
 }
 
-const logPageView = () => {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
-};
-
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path="/" onUpdate={logPageView} component={App} />
+  <Router>
+    <App />
   </Router>,
   document.querySelector('#app')
 );

@@ -6,16 +6,22 @@
   justify-content: center;
   min-height: 800px;
   padding: 1rem 0;
-  border-bottom: 10rem solid $color--primary;
+  border-bottom: 4rem solid $color--primary;
 
   @media all and (min-width: 600px) {
     padding: 2rem 5% 2rem;
+    border-bottom: 10rem solid $color--primary;
   }
 
   h1 {
     font-family: 'Lato';
-    margin: 4rem 0 4rem;
-    font-size: 40px;
+    margin: 2rem 0 3rem;
+    font-size: 30px;
+
+    @media all and (min-width: 600px) {
+      margin: 4rem 0 4rem;
+      font-size: 40px;
+    }
   }
 }
 
@@ -76,7 +82,7 @@
   }
 
   &__info {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-family: 'Lato';
     padding: 1rem;
 
@@ -103,6 +109,7 @@
 
     @media all and (min-width: 600px) {
       padding: 0;
+      margin-top: 2rem;
     }
   }
 

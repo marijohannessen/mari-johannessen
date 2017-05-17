@@ -6,9 +6,10 @@ class Projects extends React.Component {
     const colorcontrast = require('../img/color-contrast.png');
     const watchit = require('../img/watch-it.png');
     const dashboard = require('../img/conf-dashboard.png');
+    const carbon = require('../img/carbon.png');
 
     return (
-      <section className="projects">
+      <section className="projects" id="projects">
         <h1>Stuff I've made</h1>
         <div className="projects__container">
           <ul className="projects__list">
@@ -26,6 +27,14 @@ class Projects extends React.Component {
               img={watchit}
               projectLink="https://marijohannessen.github.io/watch-it/"
               srcLink="https://github.com/marijohannessen/watch-it"
+              github
+            />
+            <Project
+              title="Carbon Design System"
+              desc="Design system for IBM Cloud."
+              img={carbon}
+              projectLink="http://www.carbondesignsystem.com"
+              srcLink="https://github.com/carbon-design-system/carbon-components"
               github
             />
             <Project
