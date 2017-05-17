@@ -1,6 +1,6 @@
 const React = require('react');
 
-export default class Header extends React.Component {
+export default class Footer extends React.Component {
   render() {
     return (
       <footer className="footer">

@@ -7,6 +7,7 @@ import Intro from './Intro';
 import Contact from './Contact';
 import Blog from './Blog';
 import Codepens from './Codepens';
+import About from './About';
 
 require('../scss/main.scss');
 
@@ -20,6 +21,7 @@ class Home extends React.Component {
           <Intro />
           <Projects />
           {/*<Codepens />*/}
+          <About />
           <Contact />
           <Footer />
         </div>
