@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route, IndexRoute, Link } from 'react-router-dom';
 import Footer from './Footer';
 import Projects from './Projects';
 import Intro from './Intro';
@@ -20,7 +19,7 @@ class Home extends React.Component {
         <div className="container">
           <Intro />
           <Projects />
-          <Codepens />
+          {/*<Codepens />*/}
           <Contact />
           <Footer />
         </div>

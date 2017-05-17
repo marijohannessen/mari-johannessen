@@ -7,6 +7,10 @@ class Projects extends React.Component {
     const watchit = require('../img/watch-it.png');
     const dashboard = require('../img/conf-dashboard.png');
     const carbon = require('../img/carbon.png');
+    const animation = require('../img/animation.png');
+    const pxtoem = require('../img/pxtoem.png');
+    const cssboxshadow = require('../img/css-box-shadow.png');
+    const dropdown = require('../img/dropdown.png');
 
     return (
       <section className="projects" id="projects">
@@ -44,6 +48,30 @@ class Projects extends React.Component {
               projectLink="https://marijohannessen.github.io/conference-dashboard/"
               srcLink="https://github.com/marijohannessen/conference-dashboard"
               github
+            />
+            <Project
+              title="Austin skyline animation"
+              desc="Timelapse animation made with Tweenmax and SVG animation."
+              img={animation}
+              srcLink="http://codepen.io/marijoha/full/xRgqKG/"
+            />
+            <Project
+              title="PX to EM calculator"
+              desc="A simple calculator that converts px to em and vice versa."
+              img={pxtoem}
+              srcLink="http://codepen.io/marijoha/full/wGGZGb/"
+            />
+            <Project
+              title="CSS box shadow generator"
+              desc="Generate the perfect CSS box shadow."
+              img={cssboxshadow}
+              srcLink="http://codepen.io/marijoha/full/GZXPLp/"
+            />
+            <Project
+              title="Styled and filterable dropdown"
+              desc="A simple dropdown with filter and styles."
+              img={dropdown}
+              srcLink="http://codepen.io/marijoha/full/zKjvEw/"
             />
           </ul>
         </div>

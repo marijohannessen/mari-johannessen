@@ -10,6 +10,9 @@ class Project extends React.Component {
       github,
       projectLink,
     } = this.props;
+    const proLink = projectLink
+      ? <a href={projectLink} target="_blank">View live</a>
+      : '';
     const sourceLink = github
       ? <a href={srcLink} target="_blank">View on GitHub</a>
       : <a href={srcLink} target="_blank">View on Codepen</a>;
@@ -24,7 +27,7 @@ class Project extends React.Component {
           <h2>{title}</h2>
           <p>{desc}</p>
         </div>
-        <a href={projectLink} target="_blank">View live</a>
+        {proLink}
         {sourceLink}
       </li>
     );

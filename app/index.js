@@ -17,7 +17,6 @@ class App extends React.Component {
       <main>
         <Route exact path="/" component={Home} />
         <Route path="/blog" component={Blog}></Route>
-        <Route path="/:section" component={Home}></Route>
       </main>
     );
   }

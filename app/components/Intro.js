@@ -10,7 +10,7 @@ export default class Intro extends React.Component {
       <div className="intro" onMouseMove={this.moveMountains}>
         <div className="links">
           {/*<Link className="blog-link" to="/projects">Projects</Link>*/}
-          <Link className="blog-link" to="/blog">Blog</Link>
+          {/*<Link className="blog-link" to="/blog">Blog</Link>*/}
           {/*<Link className="blog-link" to="/contact">Contact</Link>*/}
         </div>
         <h1>Hello there.</h1>
