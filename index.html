@@ -1,88 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Lato:300,400,700" rel="stylesheet">
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Lato:300,400,700|Roboto:300,400,700" rel="stylesheet">
   <style>
-  .intro {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  @media all and (max-width: 550px) {
     .intro {
-      height: 100%;
-      border-bottom: 80px solid $color--primary;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
-  }
 
-  .sidenav {
-    position: fixed;
-    right: 0;
-    top: 11rem;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-  }
+    @media all and (max-width: 550px) {
+      .intro {
+        height: 100%;
+        border-bottom: 80px solid $color--primary;
+      }
+    }
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-  }
+    .sidenav {
+      position: fixed;
+      right: 0;
+      top: 11rem;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+    }
 
-  .ill {
-    position: relative;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    height: 100%;
-  }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+    }
 
-  .building {
-    display: none;
-    width: 5%;
-    fill: $color--primary;
-    position: absolute;
-    bottom: 20px;
-    left: 65.8%;
-    z-index: 4;
-    transition: .3s;
-  }
+    .ill {
+      position: relative;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      height: 100%;
+    }
 
-  .skyline {
-    width: 100%;
-    z-index: 1;
-    position: absolute;
-    bottom: 20px;
-    left: 270px;
-    fill: $color--primary;
-    transition: .3s;
-  }
+    .building {
+      display: none;
+      width: 5%;
+      fill: $color--primary;
+      position: absolute;
+      bottom: 20px;
+      left: 65.8%;
+      z-index: 4;
+      transition: .3s;
+    }
+
+    .skyline {
+      width: 100%;
+      z-index: 1;
+      position: absolute;
+      bottom: 20px;
+      left: 270px;
+      fill: $color--primary;
+      transition: .3s;
+    }
   </style>
   <title>Mari Johannessen | Front-End Developer</title>
-<link href="style.css" rel="stylesheet"></head>
+</head>
+
 <body>
   <main id="app"></main>
-  <noscript id="deferred-styles">
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </noscript>
-  <script>
-    var loadDeferredStyles = function() {
-      var addStylesNode = document.getElementById("deferred-styles");
-      var replacement = document.createElement("div");
-      replacement.innerHTML = addStylesNode.textContent;
-      document.body.appendChild(replacement)
-      addStylesNode.parentElement.removeChild(addStylesNode);
-    };
-    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-        webkitRequestAnimationFrame || msRequestAnimationFrame;
-    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-    else window.addEventListener('load', loadDeferredStyles);
-  </script>
 <script type="text/javascript" src="bundle.js"></script></body>
+
 </html>
