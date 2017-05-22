@@ -1,16 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BlogPost from './Blogpost';
+import FullBlogPost from './FullBlogPost';
 import SocialMedia from './SocialMedia';
 import classNames from 'classnames';
 import fs from 'fs';
 import yamlFront from 'yaml-front-matter';
 import path from 'path';
 import blogposts from '../data/posts.js';
+import DocumentMeta from 'react-document-meta';
 
 class Blog extends React.Component {
   state = {
-    open: false
+    open: true
+  }
+
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -40,14 +46,17 @@ class Blog extends React.Component {
   }
 
   render() {
-    // const blogposts = fs.readdirSync(path.join(__dirname, '/../posts'))
-    //   .map(post => {
-    //     return fs.readdirSync(path.join(__dirname, `/../posts/${post}`));
-    //   })
-    //   .map(data => {
-    //     return yamlFront.loadFront(data);
-    //   });
-
+    const meta = {
+      title: 'Mari Johannessen | Blog',
+      description: 'Blog about front-end development created by Mari Johannessen.',
+      canonical: 'http://www.marijohannessen.com/blog',
+      meta: {
+        charset: 'utf-8',
+        name: {
+          keywords: 'front-end, development, blog, front end, developer, tutorials, blogs, tutorial, web'
+        }
+      }
+    };
     const btnClasses = classNames({
       'blog-sidebar__btn': true,
       'is-active': this.state.open
@@ -58,11 +67,35 @@ class Blog extends React.Component {
     });
     const blogPostsClasses = classNames({
       'blog-posts': true,
-      'is-expanded': this.state.open
+      'is-expanded': this.state.open,
+      'blog-posts__full': (!this.props.match.params.post === undefined)
     });
-    const test = require('img-loader!../img/coding-test.jpg');
+    const blogContent = (this.props.match.params.post === undefined)
+    ? (
+      <div className={blogPostsClasses}>
+        {
+          Object.keys(blogposts).map((item, key) => {
+            return <BlogPost key={key} title={blogposts[item].title} ingress={blogposts[item].ingress} content={blogposts[item].__content} />
+          })
+        }
+      </div>
+    )
+    :
+    (
+      <div className={blogPostsClasses}>
+        {
+          Object.keys(blogposts).map((item, key) => {
+            if (blogposts[item].link === this.props.match.params.post) {
+              return  <FullBlogPost key={key} title={blogposts[item].title}  ingress={blogposts[item].ingress} content={blogposts[item].__content} keywords={blogposts[item].keywords} />
+            }
+          })
+        }
+      </div>
+      )
+    ;
     return (
       <section className="blog">
+        <DocumentMeta {...meta} />
         <div className="blog__container">
           <div className="blog__header">
             <button onClick={this.handleToggleClick} className={btnClasses}>
@@ -75,26 +108,22 @@ class Blog extends React.Component {
           </div>
           <div className={sidebarClasses}>
             <ul>
-              <li>
-                <a href="#">Creating a spinning wheel with CSS and Tweenmax</a>
-              </li>
-              <li>
-                <a href="#">Setting up your first Webpack configuration</a>
-              </li>
+              {
+                Object.keys(blogposts).map((item, key) => {
+                  return (
+                    <li key={key}>
+                      <Link to={`/blog/${blogposts[item].link}`}>{blogposts[item].title}</Link>
+                    </li>
+                  )
+                })
+              }
             </ul>
             <div className="blog-sidebar__footer">
               <p>Blog created by <Link to="/">Mari Johannessen</Link>,<br /> front-end developer based in <br />Austin, TX.</p>
               <SocialMedia />
             </div>
           </div>
-          <div className={blogPostsClasses}>
-            {
-
-              Object.keys(blogposts).map((item, key) => {
-                return <BlogPost key={key} title={blogposts[item].title} ingress={blogposts[item].ingress} content={blogposts[item].__content} />
-              })
-            }
-          </div>
+          {blogContent}
         </div>
       </section>
     );

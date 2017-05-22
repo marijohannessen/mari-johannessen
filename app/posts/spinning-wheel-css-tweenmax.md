@@ -3,11 +3,12 @@ title: Create a spinning wheel with CSS and Tweenmax
 ingress: Learn how to create a spinning wheel with CSS and Tweenmax.
 link: spinning-wheel-css-tweenmax
 date: 05-21-2017
+keywords: css,tweenmax,spinning,wheel,tutorial,blog,animation,draggable,scss,gsap
 ---
 
 Welcome to my first blog post! I decided to kick this off with a small tutorial on how to create a spinning wheel with CSS and Tweenmax. If you make anything cool with it, let me know at <a href="http://www.twitter.com/marisafari" target="_blank">@marisafari</a> 😃
 
-### Here is what we'll be making:
+### Here is what we'll be making (give it a spin!):
 
 <div class="top-bar">
 	<div class="dots"></div>
@@ -191,3 +192,62 @@ I bet you're expecting more JavaScript right now, but that's it - we're done! Su
 Check out our finished spinning wheel (and give it a drag!):
 
 <p data-height="810" data-theme-id="29654" data-slug-hash="bWmyoM" data-default-tab="result" data-user="marijoha" data-embed-version="2" data-pen-title="Spinning wheel" class="codepen" />
+
+## 5. Browser support
+
+If you view the wheel in Firefox, you'll discover that none of the clip-paths are being applied properly. This is because Firefox currently only supports clip-paths from SVG's. So in order to fix our problem we can add a couple of SVG's with the clip-paths we need, and then reference them in the CSS.
+
+#### HTML for the SVG clip-paths
+
+```
+<!-- For Firefox support -->
+<svg width="0" height="0">
+  <defs>
+    <clipPath id="polygon-shape" clipPathUnits="objectBoundingBox">
+      <polygon points="0 .50, 1 1, 1 0" />
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- For Firefox support -->
+<svg width="0" height="0">
+  <defs>
+    <clipPath id="tick-shape" clipPathUnits="objectBoundingBox">
+      <polygon points=".50 1, 0 0, 1 0" />
+    </clipPath>
+  </defs>
+</svg>
+```
+
+To figure out the points needed for the polygon, you simply need to divide the percentage value by 100. So 50% = .50.
+
+#### CSS for the SVG clip-paths
+
+```
+.tick {
+  width: 2rem;
+  height: 6rem;
+  background-color: #333;
+  margin-bottom: -2rem;
+  z-index: 2;
+  position: relative;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  // For Firefox support
+  clip-path: url("#tick-shape");
+  transform-origin: top;
+}
+
+.color {
+  width: 600px;
+  height: 270px;
+  clip-path: polygon(0 50%, 100% 100%, 100% 0%);
+  right: -300px;
+  top: 150px;
+  position: absolute;
+  z-index: 2;
+  // For Firefox support
+  clip-path: url("#polygon-shape");
+}
+```
+
+The wheel is now rendering as expected in Firefox as well as Chrome and Safari (IE does not support clip-path).
