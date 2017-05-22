@@ -47,4 +47,7 @@ module.exports = {
       template: './app/index.html',
     }),
   ],
+  node: {
+    fs: 'empty'
+  }
 };

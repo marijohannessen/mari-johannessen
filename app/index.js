@@ -22,8 +22,13 @@ class App extends React.Component {
   }
 }
 
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+}
+
 ReactDOM.render(
-  <Router>
+  <Router onUpdate={logPageView}>
     <App />
   </Router>,
   document.querySelector('#app')

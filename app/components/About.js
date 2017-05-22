@@ -1,20 +1,29 @@
 const React = require('react');
+import ReactGA from 'react-ga';
 
 export default class About extends React.Component {
+  trackClick = (clickedItem) => {
+    ReactGA.event({
+      category: 'About section clicks',
+      action: 'click',
+      label: clickedItem,
+    });
+  }
+
   render() {
     return (
       <section className="about projects">
         <h1>A little bit about me</h1>
         <div className="about__info">
           <p>I was born and raised in Norway, and became a permanent resident of USA in 2015.
-            I lived in Australia for 2 years where I completed a <a href="https://www.ecu.edu.au/degrees/courses/bachelor-of-design/unitset?id=MAAAIL&crsCd=Y82" target="_blank">Bachelor's degree in Graphic Design</a>.
-            I then went on to complete a second <a href="http://www.uib.no/en/studyprogramme/BAMN-DTEK" target="_blank">Bachelor's degree in Computer Science</a>.
+            I lived in Australia for 2 years where I completed a <a onClick={this.trackClick('ECU')} href="https://www.ecu.edu.au/degrees/courses/bachelor-of-design/unitset?id=MAAAIL&crsCd=Y82" target="_blank">Bachelor's degree in Graphic Design</a>.
+            I then went on to complete a second <a onClick={this.trackClick('UiB')} href="http://www.uib.no/en/studyprogramme/BAMN-DTEK" target="_blank">Bachelor's degree in Computer Science</a>.
             Being a Front-End Developer turned out to be the perfect combination of my two passions.
             <br />
             <br />
-            I am currently a part of the <a href="http://www.carbondesignsystem.com" target="_blank">Carbon Design System</a> team at IBM Cloud in Austin, TX.
+            I am currently a part of the <a onClick={this.trackClick('Carbon')} href="http://www.carbondesignsystem.com" target="_blank">Carbon Design System</a> team at IBM Cloud in Austin, TX.
           </p>
-          <p>
+          <div>
             <h2>I have experience with:</h2>
             <div className="list">
               <ul>
@@ -36,7 +45,7 @@ export default class About extends React.Component {
                 <li>UX design</li>
               </ul>
             </div>
-          </p>
+          </div>
         </div>
       </section>
     )

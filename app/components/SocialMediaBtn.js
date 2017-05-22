@@ -4,7 +4,7 @@ import ReactGA from 'react-ga';
 class SocialMediaBtn extends React.Component {
   trackClick = evt => {
     ReactGA.event({
-      category: 'Website Clicks',
+      category: 'Social Media Clicks',
       action: 'click',
       label: this.props.type,
     });

@@ -20,7 +20,6 @@ class Home extends React.Component {
         <div className="container">
           <Intro />
           <Projects />
-          {/*<Codepens />*/}
           <About />
           <Contact />
           <Footer />
