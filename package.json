@@ -6,7 +6,7 @@
     "storybook": "start-storybook -p 9001",
     "build": "webpack",
     "start": "node scripts/frontmatter.js && webpack-dev-server",
-    "deploy": "gh-pages -d app/dist"
+    "deploy": "npm run build && cd app/dist && mv index.html 200.html && surge . --domain marijohannessen.com"
   },
   "repository": {
     "type": "git",

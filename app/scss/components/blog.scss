@@ -108,7 +108,7 @@ $bp-3: 460px;
   }
 
   p {
-    font-family: 'Source Sans Pro';
+    font-family: 'Open Sans';
     margin-left: .5rem;
     font-weight: 300;
     font-size: 14px;
@@ -143,7 +143,7 @@ $bp-3: 460px;
   }
 
   ul {
-    font-family: 'Source Sans Pro';
+    font-family: 'Open Sans';
     list-style: none;
     margin-top: 1.5rem;
 
@@ -175,8 +175,8 @@ $bp-3: 460px;
   left: 1.5rem;
 
   p {
-    font-family: 'Source Sans Pro';
-    font-size: 14px;
+    font-family: 'Open Sans';
+    font-size: 13px;
     font-weight: 300;
     line-height: 1.5;
     padding-right: 1rem;
@@ -246,8 +246,8 @@ $bp-3: 460px;
   }
 
   h1 {
-    font-size: 60px;
-    font-family: 'Source Sans Pro';
+    font-size: 52px;
+    font-family: 'Open Sans';
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: .5px;
@@ -261,7 +261,7 @@ $bp-3: 460px;
     transition: .3s ease;
 
     @media all and (max-width: $bp-2) {
-      font-size: 44px;
+      font-size: 36px;
       max-width: 400px;
     }
   }
@@ -269,10 +269,11 @@ $bp-3: 460px;
   &__ingress {
     font-size: 28px;
     line-height: 1.75;
-    font-family: 'PT Serif';
+    font-family: 'Open Sans';
     transition: .3s ease;
     max-width: 900px;
     font-weight: 700;
+    display: none;
   }
 
   &__container {
@@ -289,7 +290,7 @@ $bp-3: 460px;
   }
 
   &__content {
-    margin-top: 4rem;
+    margin-top: 1rem;
     transition: .3s ease;
     max-width: 900px;
 
@@ -307,8 +308,8 @@ $bp-3: 460px;
     h3,
     h2,
     h4 {
-      font-family: 'PT Serif';
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Open Sans';
+      // -webkit-font-smoothing: antialiased;
     }
 
     p + pre {
@@ -353,21 +354,21 @@ $bp-3: 460px;
   .pro-tip {
     font-size: 16px;
     display: block;
-    font-family: 'Source Sans Pro';
+    font-family: 'Open Sans';
     margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-bottom: .5rem;
+    padding-left: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-top: 1.25rem;
     border-left: 4px solid $purple;
     background-color: whitesmoke;
 
     *:not(code) {
-      font-family: 'Source Sans Pro';
+      font-family: 'Open Sans';
     }
 
     a {
       font-weight: 700;
-      color: black;
-      text-decoration: underline;
+      color: $purple;
     }
 
     code {
@@ -375,13 +376,14 @@ $bp-3: 460px;
       padding: 0;
       color: black;
       margin: 0;
-      font-size: 14px;
+      margin-top: -.25rem;
+      font-size: 16px;
     }
   }
 
   &__content p {
-    font-family: 'PT Serif';
-    font-size: 23px;
+    font-family: 'Open Sans';
+    font-size: 18px;
     line-height: 36px;
     margin-bottom: 2rem;
     color: rgba(0, 0, 0, .8);
@@ -405,13 +407,14 @@ $bp-3: 460px;
   &__content h4 {
     font-weight: 600;
     margin: 4rem 0 1rem;
-    font-size: 24px;
-    font-family: 'Source Sans Pro';
+    font-size: 22px;
+    font-family: 'Open Sans';
   }
 
   &__content a {
     text-decoration: none;
     color: $purple;
+    font-weight: 700;
 
     &:hover {
       text-decoration: underline;

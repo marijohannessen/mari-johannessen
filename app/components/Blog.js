@@ -12,7 +12,7 @@ import DocumentMeta from 'react-document-meta';
 
 class Blog extends React.Component {
   state = {
-    open: true
+    open: false
   }
 
   constructor(props) {
