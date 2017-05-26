@@ -2,19 +2,16 @@
 title: Create a spinning wheel with CSS and Tweenmax
 ingress: Learn how to create a spinning wheel with CSS and Tweenmax.
 link: spinning-wheel-css-tweenmax
-date: 05-21-2017
+date: May 21st, 2017
 keywords: css,tweenmax,spinning,wheel,tutorial,blog,animation,draggable,scss,gsap
+desc: Learn how to create a spinning wheel with CSS and Tweenmax.
+img: https://cloud.githubusercontent.com/assets/5447411/26431898/75c85b48-40bd-11e7-991c-d3cb5bab5203.png
 ---
 
 Welcome to my first blog post! I decided to kick this off with a small tutorial on how to create a spinning wheel with CSS and Tweenmax. If you make anything cool with it, let me know at <a href="http://www.twitter.com/marisafari" target="_blank">@marisafari</a> 😃
 
 ### Here is what we'll be making (give it a spin!):
 
-<div class="top-bar">
-	<div class="dots"></div>
-	<div class="dots"></div>
-	<div class="dots"></div>
-</div>
 <p data-height="805" data-theme-id="29654" data-slug-hash="bWmyoM" data-default-tab="result" data-user="marijoha" data-embed-version="2" data-pen-title="Spinning wheel" class="codepen" />
 
 You can view the <a href="http://codepen.io/marijoha/pen/bWmyoM" target="_blank">original Codepen here</a>.
@@ -33,7 +30,7 @@ First of all, let's create the wheel and the colors inside it.
 
 #### HTML for the spinning wheel
 
-```
+```markup
 <div class="spinning-wheel">
   <div class="color"></div>
   <div class="color"></div>
@@ -65,7 +62,7 @@ First of all, let's create the wheel and the colors inside it.
 
 #### SCSS for the main wheel
 
-```
+```css
 .spinning-wheel {
   width: 600px;
   height: 600px;

@@ -5,3 +5,7 @@ app/dist/*
 
 # System
 .DS_Store
+
+surge.crt
+surge.key
+surge.pem

@@ -53,8 +53,8 @@ class Blog extends React.Component {
       meta: {
         charset: 'utf-8',
         name: {
-          keywords: 'front-end, development, blog, front end, developer, tutorials, blogs, tutorial, web'
-        }
+          keywords: 'front-end, development, blog, front end, developer, tutorials, blogs, tutorial, web',
+        },
       }
     };
     const btnClasses = classNames({
@@ -75,7 +75,7 @@ class Blog extends React.Component {
       <div className={blogPostsClasses}>
         {
           Object.keys(blogposts).map((item, key) => {
-            return <BlogPost key={key} title={blogposts[item].title} ingress={blogposts[item].ingress} content={blogposts[item].__content} />
+            return <BlogPost key={key} desc={blogposts[item].desc} img={blogposts[item].img} link={blogposts[item].link} title={blogposts[item].title} ingress={blogposts[item].ingress} content={blogposts[item].__content} keywords={blogposts[item].keywords} date={blogposts[item].date} />
           })
         }
       </div>
@@ -86,7 +86,7 @@ class Blog extends React.Component {
         {
           Object.keys(blogposts).map((item, key) => {
             if (blogposts[item].link === this.props.match.params.post) {
-              return  <FullBlogPost key={key} title={blogposts[item].title}  ingress={blogposts[item].ingress} content={blogposts[item].__content} keywords={blogposts[item].keywords} />
+              return  <FullBlogPost key={key} desc={blogposts[item].desc} img={blogposts[item].img} link={blogposts[item].link} title={blogposts[item].title}  ingress={blogposts[item].ingress} content={blogposts[item].__content} keywords={blogposts[item].keywords} date={blogposts[item].date} />
             }
           })
         }

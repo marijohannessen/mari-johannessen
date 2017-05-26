@@ -9,13 +9,13 @@ const renderFrontMatter = () => {
   const posts = fs.readdirSync(`${dir}/app/posts/`)
   let itemsProcessed = 0;
   let content = [];
-  posts.forEach(post => {
+  for (let i = posts.length-1; i > -1; i--) {
     itemsProcessed++;
-    content.push(yamlFront.loadFront(fs.readFileSync(`${dir}/app/posts/${post}`)));
+    content.push(yamlFront.loadFront(fs.readFileSync(`${dir}/app/posts/${posts[i]}`)));
     if (itemsProcessed === posts.length) {
       fs.writeFileSync(`${dir}/app/data/posts.js`, `/* eslint-disable */\n module.exports = ${JSON.stringify(content, null, 2)}`);
     }
-  });
+  }
 };
 
 renderFrontMatter();

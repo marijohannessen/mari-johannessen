@@ -1,0 +1,52 @@
+
+.blog__header {
+  height: 50px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  border-bottom: 1px solid #d9d9d9;
+
+  &--logo {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    padding-left: 1rem;
+    margin-top: .125rem;
+    // text-transform: uppercase;
+    color: #333;
+    font-weight: 400;
+    // letter-spacing: 1px;
+
+    &:hover {
+      color: $purple;
+
+      span {
+        color: $purple;
+      }
+    }
+
+    span {
+      // font-weight: 400;
+      margin-left: .3rem;
+    }
+  }
+
+  p {
+    font-family: 'Open Sans';
+    margin-left: .5rem;
+    font-weight: 300;
+    font-size: 14px;
+
+    span {
+      margin: 0 .25rem;
+    }
+
+    @media all and (max-width: $bp-3) {
+      display: none;
+    }
+  }
+}
