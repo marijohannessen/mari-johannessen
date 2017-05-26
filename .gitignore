@@ -6,6 +6,6 @@ app/dist/*
 # System
 .DS_Store
 
-surge.crt
-surge.key
-surge.pem
+marijohannessen.com.key
+marijohannessen.csr
+marijohannessen.key

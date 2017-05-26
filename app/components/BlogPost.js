@@ -1,12 +1,15 @@
 import React from 'react';
 import marked from 'marked';
+import hljs from 'highlight.js';
 
 class BlogPost extends React.Component {
 
   render() {
     marked.setOptions({
       highlight: function (code) {
-        return require('highlight.js').highlightAuto(code).value;
+        const highlighted = hljs.highlightAuto(code).value;
+        console.log(highlighted);
+        return highlighted;
       }
     });
     const avatar = require('../img/website-mari.png');
