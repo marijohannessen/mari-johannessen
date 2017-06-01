@@ -52,6 +52,8 @@ class FullBlogPost extends React.Component {
       <div className="blog-post blog-post--full">
         <DocumentMeta {...meta} />
         <div className="blog-post__header">
+          <span></span>
+          <span></span>
           <h1>{this.props.title}</h1>
         </div>
         <div className="blog-post__container">

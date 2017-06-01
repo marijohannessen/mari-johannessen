@@ -1,8 +1,18 @@
 import React from 'react';
 import marked from 'marked';
 import hljs from 'highlight.js';
+import classNames from 'classnames';
 
 class BlogPost extends React.Component {
+  state = {
+    expanded: false
+  }
+
+  expandPost = () => {
+    this.setState({
+      expanded: true
+    });
+  }
 
   render() {
     marked.setOptions({
@@ -13,8 +23,15 @@ class BlogPost extends React.Component {
       }
     });
     const avatar = require('../img/website-mari.png');
+    const blogPostClasses = classNames({
+      'blog-post': true,
+      'blog-post--extended': this.state.expanded
+    });
+    const expandBtnText = (this.state.expanded)
+    ? 'Minimize blog post'
+    : 'Expand blog post';
     return (
-      <div className="blog-post">
+      <div className={blogPostClasses}>
         <div className="blog-post__header">
           <span></span>
           <span></span>
@@ -40,6 +57,9 @@ class BlogPost extends React.Component {
             </ul>
           </div>
           <div className="blog-post__content" dangerouslySetInnerHTML={{ __html: marked(this.props.content) }} />
+        </div>
+        <div className="blog-post__extend">
+          <button onClick={this.expandPost}>{expandBtnText}</button>
         </div>
       </div>
     );
