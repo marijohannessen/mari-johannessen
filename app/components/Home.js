@@ -5,7 +5,6 @@ import Footer from './Footer';
 import Projects from './Projects';
 import Intro from './Intro';
 import Contact from './Contact';
-import Blog from './Blog';
 import About from './About';
 import DocumentMeta from 'react-document-meta';
 
