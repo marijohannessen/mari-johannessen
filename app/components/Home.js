@@ -6,7 +6,6 @@ import Projects from './Projects';
 import Intro from './Intro';
 import Contact from './Contact';
 import Blog from './Blog';
-import Codepens from './Codepens';
 import About from './About';
 import DocumentMeta from 'react-document-meta';
 
